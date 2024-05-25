@@ -1,7 +1,7 @@
 <template>
   <div class="add-task">
     <form @submit.prevent="addTask">
-      <input v-model="taskText" placeholder="Enter task" />
+      <textarea v-model="taskText" placeholder="Enter task"></textarea>
       <select v-model="taskPriority">
         <option value="high">High</option>
         <option value="medium">Medium</option>
@@ -53,6 +53,7 @@ export default {
   }
   
   input,
+  textarea,
   select,
   button {
     margin-right: 10px;
@@ -71,9 +72,12 @@ export default {
     background-color: #45a049;
   }
 
-  .close-btn {
-  cursor: pointer;
-  font-size: 24px;
+/* media smaller than 550px */
+@media (max-width: 550px) {
+form{
+  flex-direction: column;
+  gap: 15px;
+}
 }
   </style>
   
